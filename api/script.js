@@ -1,14 +1,23 @@
 const app = new Vue ({
     el: "#root",
     data: {
-        database: []
+      database: [],
+      genre: '',
+      url: 'http://localhost/php-ajax-dischi/api/server.php?genre=',
     },
-    created() {
+
+    mounted() {
+      this.getAPI();
+    },
+
+    methods: {
+      getAPI() {
         axios
-          .get("http://localhost/php-ajax-dischi/api/server.php")
-          .then((resp) => {
-            this.database = resp.data;
-            console.log(resp.data);
+        .get(this.url + this.genre)
+        .then((resp) => {
+          this.database = resp.data;
         });
+      }
     },
+    
 });

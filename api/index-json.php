@@ -46,6 +46,26 @@
     <!-- MAIN -->
     <main id="root">
         <div class="container">
+
+        <!-- GENRE FILTER -->
+        <div class="row row-cols-1">
+            <label class="p-3 text-center" for="filter-search">
+            Filtra per genere musicale
+            <select
+            @change="getAPI()"
+            v-model="genre"
+            >
+                <option value="" selected>Tutti</option>
+                <option value="Rock">Rock</option>
+                <option value="Jazz">Jazz</option>
+                <option value="Pop">Pop</option>
+                <option value="Metal">Metal</option>
+            </select>
+            </label>
+        </div>
+
+        <!-- /GENRE FILTER -->
+            
         <div class="row row-cols-3 row-cols-lg-5 mt-4">
 
             <div v-for="item in database" class="song-card text-center p-3 mb-3">
